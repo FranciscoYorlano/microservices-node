@@ -3,6 +3,8 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const express = require("express");
 const router = require("./src/routes");
+const response = require("./src/utils/response");
+const errorMessages = require("./src/utils/errorMessages");
 
 const application = express();
 
@@ -57,6 +59,9 @@ application.use(
     })
 );
 application.use("/api", router);
+application.use("*", (req, res) => {
+    response(res, 404, errorMessages.NOT_FOUND);
+});
 
 /**
  * Env config

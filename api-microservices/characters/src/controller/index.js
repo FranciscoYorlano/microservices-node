@@ -1,7 +1,8 @@
 const characters = require("../characters.json");
+const response = require("../utils/response");
 
 const getAllCharacters = (req, res) => {
-    res.status(200).json(characters);
+    return response(res, 200, characters);
 };
 
 module.exports = {

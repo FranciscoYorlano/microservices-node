@@ -1,7 +1,8 @@
 const films = require("../films.json");
+const response = require("../utils/response");
 
 const getAllFilms = (req, res) => {
-    res.status(200).json(films);
+    return response(res, 200, films);
 };
 
 module.exports = {

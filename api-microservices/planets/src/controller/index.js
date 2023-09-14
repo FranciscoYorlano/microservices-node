@@ -1,7 +1,8 @@
 const planets = require("../planets.json");
+const response = require("../utils/response");
 
 const getAllPlanets = (req, res) => {
-    res.status(200).json(planets);
+    return response(res, 200, planets);
 };
 
 module.exports = {
