@@ -1,11 +1,6 @@
-const service = require("../data");
-const response = require("../utils/response");
-
-const getAllFilms = async (req, res) => {
-    const films = await service.getAll();
-    return response.success(res, 200, films);
-};
+const getAllFilms = require("./getAllFilms");
+const asyncErrorHandler = require("../utils/asyncErrorHandler");
 
 module.exports = {
-    getAllFilms,
+    getAllFilms: asyncErrorHandler(getAllFilms),
 };
