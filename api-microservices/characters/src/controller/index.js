@@ -1,7 +1,7 @@
-const characters = require("../characters.json");
-const response = require("../utils/response");
+const service = require("../data");
 
-const getAllCharacters = (req, res) => {
+const getAllCharacters = async (req, res) => {
+    const characters = await service.getAll();
     return response(res, 200, characters);
 };
 

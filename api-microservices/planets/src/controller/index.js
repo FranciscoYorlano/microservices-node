@@ -1,7 +1,7 @@
-const planets = require("../planets.json");
-const response = require("../utils/response");
+const service = require("../data");
 
-const getAllPlanets = (req, res) => {
+const getAllPlanets = async (req, res) => {
+    const planets = await service.getAll();
     return response(res, 200, planets);
 };
 

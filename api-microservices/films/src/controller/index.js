@@ -1,7 +1,7 @@
-const films = require("../films.json");
-const response = require("../utils/response");
+const service = require("../data");
 
-const getAllFilms = (req, res) => {
+const getAllFilms = async (req, res) => {
+    const films = await service.getAll();
     return response(res, 200, films);
 };
 
