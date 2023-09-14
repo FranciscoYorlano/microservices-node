@@ -60,7 +60,7 @@ application.use(
 );
 application.use("/api", router);
 application.use("*", (req, res) => {
-    response(res, 404, errorMessages.NOT_FOUND);
+    response.error(res, errorMessages.NOT_FOUND);
 });
 
 /**
