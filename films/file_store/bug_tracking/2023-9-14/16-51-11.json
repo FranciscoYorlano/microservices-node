@@ -1,8 +1,0 @@
-{
-    "id": false,
-    "code": "002-001",
-    "status": 500,
-    "component": "unknown",
-    "description": "Se ha producido una excepción desconocida.",
-    "errorString": "soy un error async"
-}

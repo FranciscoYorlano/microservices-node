@@ -1,11 +1,6 @@
-const service = require("../data");
-const response = require("../utils/response");
-
-const getAllPlanets = async (req, res) => {
-    const planets = await service.getAll();
-    return response.success(res, 200, planets);
-};
+const getAllPlanets = require("./getAllPlanets");
+const asyncErrorHandler = require("../utils/asyncErrorHandler");
 
 module.exports = {
-    getAllPlanets,
+    getAllPlanets: asyncErrorHandler(getAllPlanets),
 };
