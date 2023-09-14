@@ -1,5 +1,12 @@
-module.exports = (fn) => {
+const response = require("./response");
+const errorMessages = require("./errorMessages");
+const bugTracker = require("./bugTracker");
+
+module.exports = (callBackFn) => {
     return (req, res, next) => {
-        fn(req, res).catch((err) => next(err));
+        callBackFn(req, res).catch((err) => {
+            bugTracker(errorMessages.UNKNOWN_EXCEPTION, err);
+            response.error(res, errorMessages.UNKNOWN_EXCEPTION);
+        });
     };
 };
