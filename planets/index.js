@@ -58,7 +58,7 @@ application.use(
         origin: "*",
     })
 );
-application.use("/planets", router);
+application.use("/api/planets", router);
 application.use("*", (req, res) => {
     response.error(res, errorMessages.NOT_FOUND);
 });

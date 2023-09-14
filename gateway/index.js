@@ -2,9 +2,9 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const express = require("express");
-const router = require("./src/routes");
 const response = require("./src/utils/response");
 const errorMessages = require("./src/utils/errorMessages");
+const { createProxyMiddleware } = require("http-proxy-middleware");
 
 const application = express();
 
@@ -58,9 +58,29 @@ application.use(
         origin: "*",
     })
 );
-application.use("/api/films", router);
+application.use(
+    "/api/characters",
+    createProxyMiddleware({
+        target: "http://localhost:8001",
+        changeOrigin: true,
+    })
+);
+application.use(
+    "/api/films",
+    createProxyMiddleware({
+        target: "http://localhost:8002",
+        changeOrigin: true,
+    })
+);
+application.use(
+    "/api/planets",
+    createProxyMiddleware({
+        target: "http://localhost:8003",
+        changeOrigin: true,
+    })
+);
 application.use("*", (req, res) => {
-    response.error(res, errorMessages.NOT_FOUND);
+    response.error(res, errorMessages.UNKNOWN_EXCEPTION);
 });
 
 /**

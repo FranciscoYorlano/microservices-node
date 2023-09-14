@@ -58,7 +58,7 @@ application.use(
         origin: "*",
     })
 );
-application.use("/characters", router);
+application.use("/api/characters", router);
 application.use("*", (req, res) => {
     response.error(res, errorMessages.NOT_FOUND);
 });
