@@ -25,4 +25,7 @@ module.exports = {
             })
         );
     },
+    setMethods: () => {
+        require("../utils/pagination");
+    },
 };

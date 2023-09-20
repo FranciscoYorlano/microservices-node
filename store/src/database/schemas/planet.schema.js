@@ -1,8 +1,8 @@
-const { Schema } = require("mongoose");
+const { Schema, Types } = require("mongoose");
 
 const PlanetSchema = new Schema(
     {
-        _id: String,
+        _id: Types.ObjectId,
         name: String,
         rotation_period: String,
         orbital_period: String,
@@ -11,8 +11,10 @@ const PlanetSchema = new Schema(
         gravity: String,
         terrain: String,
         surface_water: String,
-        res_idents: [{ type: String, ref: "collection_character" }],
-        films: [{ type: String, ref: "collection_film" }],
+        residents: [
+            { type: Schema.Types.ObjectId, ref: "collection_character" },
+        ],
+        films: [{ type: Schema.Types.ObjectId, ref: "collection_film" }],
     },
     { timestamps: true }
 );
