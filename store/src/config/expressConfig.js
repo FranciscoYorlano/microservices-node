@@ -1,3 +1,6 @@
+const cors = require("cors");
+const express = require("express");
+
 module.exports = {
     setOptions: (application) => {
         application.use((req, res, next) => {
@@ -14,9 +17,6 @@ module.exports = {
             next();
         });
 
-        application.use(
-            bodyParser.urlencoded({ extended: true, limit: "50mb" })
-        );
         application.use(express.json());
         application.use(express.urlencoded({ extended: false }));
         application.use(

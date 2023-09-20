@@ -14,5 +14,3 @@ module.exports = {
         require("./schemas/planet.schema")
     ),
 };
-
-CharacterModel.find();
