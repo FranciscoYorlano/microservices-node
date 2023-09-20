@@ -1,6 +1,6 @@
-const getAllFilms = require("./getAllFilms");
+const getAllFilm = require("./getAllFilm");
 const asyncErrorHandler = require("../utils/asyncErrorHandler");
 
 module.exports = {
-    getAllFilms: asyncErrorHandler(getAllFilms),
+    getAllFilms: asyncErrorHandler(getAllFilm),
 };

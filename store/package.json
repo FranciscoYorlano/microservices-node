@@ -1,7 +1,7 @@
 {
-    "name": "startwars-api-database",
+    "name": "startwars-api-store",
     "version": "1.0.0",
-    "description": "Database service startwars api",
+    "description": "Store service startwars api",
     "main": "index.js",
     "engines": {
         "node": "18.16.0",

@@ -13,3 +13,5 @@ const FilmSchema = new Schema(
     },
     { timestamps: true }
 );
+
+module.exports = FilmSchema;

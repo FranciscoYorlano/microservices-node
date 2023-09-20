@@ -1,6 +1,6 @@
-const getAllPlanets = require("./getAllPlanets");
+const getAllPlanet = require("./getAllPlanet");
 const asyncErrorHandler = require("../utils/asyncErrorHandler");
 
 module.exports = {
-    getAllPlanets: asyncErrorHandler(getAllPlanets),
+    getAllPlanets: asyncErrorHandler(getAllPlanet),
 };

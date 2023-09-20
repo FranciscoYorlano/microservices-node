@@ -37,10 +37,10 @@ services:
         ports:
             - "8003:8003"
         depends_on:
-            - database
+            - store
         networks:
             - starwars-network
-    database:
+    store:
         build:
             context: ./planets
             dockerfile: Dockerfile
