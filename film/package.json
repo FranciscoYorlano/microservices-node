@@ -1,7 +1,7 @@
 {
-    "name": "starwars-films-service",
+    "name": "starwars-film-service",
     "version": "1.0.0",
-    "description": "films service",
+    "description": "film service",
     "main": "index.js",
     "engines": {
         "node": "18.16.0",

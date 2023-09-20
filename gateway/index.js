@@ -61,26 +61,26 @@ application.use(
 application.use(
     "/api/characters",
     createProxyMiddleware({
-        target: "http://localhost:8001",
+        target: "http://characters:8001",
         changeOrigin: true,
     })
 );
 application.use(
     "/api/films",
     createProxyMiddleware({
-        target: "http://localhost:8002",
+        target: "http://films:8002",
         changeOrigin: true,
     })
 );
 application.use(
     "/api/planets",
     createProxyMiddleware({
-        target: "http://localhost:8003",
+        target: "http://planets:8003",
         changeOrigin: true,
     })
 );
 application.use("*", (req, res) => {
-    response.error(res, errorMessages.UNKNOWN_EXCEPTION);
+    response.error(res, errorMessages.NOT_FOUND);
 });
 
 /**

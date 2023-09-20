@@ -1,0 +1,53 @@
+version: "3"
+services:
+    gateway:
+        build:
+            context: ./gateway
+            dockerfile: Dockerfile
+        ports:
+            - "8000:8000"
+        depends_on:
+            - character
+        networks:
+            - starwars-network
+    character:
+        build:
+            context: ./character
+            dockerfile: Dockerfile
+        ports:
+            - "8001:8001"
+        depends_on:
+            - film
+        networks:
+            - starwars-network
+    film:
+        build:
+            context: ./film
+            dockerfile: Dockerfile
+        ports:
+            - "8002:8002"
+        depends_on:
+            - planet
+        networks:
+            - starwars-network
+    planet:
+        build:
+            context: ./planet
+            dockerfile: Dockerfile
+        ports:
+            - "8003:8003"
+        depends_on:
+            - database
+        networks:
+            - starwars-network
+    database:
+        build:
+            context: ./planets
+            dockerfile: Dockerfile
+        ports:
+            - "8004:8004"
+        networks:
+            - starwars-network
+
+networks:
+    starwars-network:
